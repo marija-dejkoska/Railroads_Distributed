@@ -25,16 +25,18 @@ public class MpiText {
             int[] flatBoard = new int[rows*cols];
             MPI.COMM_WORLD.Recv(flatBoard, 0, rows*cols, MPI.INT, 0, 1);
 
-            System.out.println("rank" + rank + "recv rows: " + rows + ", cols: "+cols+", trains: "+ trainPairCount);
-            System.out.println(
+            //System.out.println("rank" + rank + "recv rows: " + rows + ", cols: "+cols+", trains: "+ trainPairCount);
+            /* System.out.println(
                     "rank " + rank +
                             " received board: first=" + flatBoard[0] +
                             ", last=" + flatBoard[rows * cols - 1]
             );
 
+             */
+
             int[] flatTrains = new int[trainPairCount*4];
             MPI.COMM_WORLD.Recv(flatTrains, 0, flatTrains.length, MPI.INT, 0, 2);
-            System.out.println("rank" + rank+"train1: "+flatTrains[0]+","+flatTrains[1]+"->"+flatTrains[2]+","+flatTrains[3]);
+            //System.out.println("rank" + rank+"train1: "+flatTrains[0]+","+flatTrains[1]+"->"+flatTrains[2]+","+flatTrains[3]);
 
 
             Train[] trains = new Train[trainPairCount];

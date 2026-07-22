@@ -8,8 +8,8 @@ public class Algo {
     private final Train[] trains;
     private final int trainPairCount;
     private final Random rnd;
-    private int populationSize=200;
-    private int generations=500;
+    private int populationSize=500;
+    private int generations=1000;
 
     public Algo(GameEvaluator evaluator, Train[] trains, int trainPairCount){
         this.evaluator=evaluator;
