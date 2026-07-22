@@ -8,8 +8,8 @@ public class Algo {
     private final Train[] trains;
     private final int trainPairCount;
     private final Random rnd;
-    private int populationSize=500;
-    private int generations=1000;
+    private int populationSize=100;
+    private int generations=200;
 
     public Algo(GameEvaluator evaluator, Train[] trains, int trainPairCount){
         this.evaluator=evaluator;
@@ -110,11 +110,12 @@ public class Algo {
         }
         int[][] finalSnap=copyBoard(bestBoard);
         javax.swing.SwingUtilities.invokeLater(() -> boardPanel.applyBoard(finalSnap));
-        System.out.println("final best score= "+bestScore);
 
-        long endTime=System.nanoTime();
-        double seconds =(endTime - startTime) / 1_000_000_000.0;
-        System.out.println("runtime: " + seconds);
+        long endTime = System.nanoTime();
+        double elapsedMs = (endTime - startTime) / 1_000_000.0;
+
+        System.out.println("final best score= " + bestScore);
+        System.out.println("runtime = " + elapsedMs + " ms");
 
         /*
         int[] stop = {0};
